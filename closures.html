@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+    <script>
+
+        //-------------Closures--------------
+
+        //IIFE  ---  Es una funcion que se llama automaticamente
+        (function(){
+            let color = "green";
+            function printColor () {
+                console.log(color);
+            }
+
+            printColor();
+        })();
+
+        //Funcion que regresa otra funcion
+        function makeColorPrinter(color) {
+            let colorMessage = `The color is : ${color}`;
+            return function () {
+                console.log(colorMessage);
+            }
+        }
+
+        let impresoraColores = makeColorPrinter('red');
+        impresoraColores();
+
+        //Variable Privadas
+        function makeCounter(n) {
+            let count = n;
+            return {
+                getNumber: function (){
+                    return count;
+                },
+                incrementar: function (){
+                    count = count + 1;
+                },
+                decrementar: function (){
+                    count = count - 1;
+                },
+            };
+        }
+
+        let counter = makeCounter(10);
+        console.log(counter.getNumber());
+        counter.decrementar();
+        counter.decrementar();
+        counter.decrementar();
+        counter.decrementar();
+        console.log(counter.getNumber());
+        counter.incrementar();
+        console.log(counter.getNumber());
+        counter.incrementar();
+        console.log(counter.getNumber());
+
+        counter.conut = 78;
+        console.log(counter.conut);
+        console.log(counter.getNumber());
+
+    </script>
+</body>
+</html>
