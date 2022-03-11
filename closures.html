@@ -66,6 +66,38 @@
         console.log(counter.conut);
         console.log(counter.getNumber());
 
+
+        //Practica German
+
+        function operaciones(a, b) {
+            let res = 0, num1 = a, num2 = b;
+            return {
+                adicion: function(){
+                    return res = num1 + num2;
+                },
+                diferencia: function(){
+                    return res = num1 - num2;
+                },
+                cociente: function(){
+                    return res = num1 / num2;
+                },
+                producto: function(){
+                    return res = num1 * num2;
+                },
+            };
+        }
+
+        let operacion = new operaciones(10, 5);
+
+        console.log(`Respuesta de la adicion: ${operacion.adicion()}`);
+        console.log(`Respuesta de la diferencia: ${operacion.diferencia()}`);
+        console.log(`Respuesta de la divicion: ${operacion.cociente()}`);
+        console.log(`Respuesta de la multiplicacion: ${operacion.producto()}`);
+        
+
+
+
+
     </script>
 </body>
 </html>
