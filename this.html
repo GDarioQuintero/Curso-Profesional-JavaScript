@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p>Abre la consola</p>
+    <h1><code>this</code> se refiere a unobjeto. ese objeto es el que actualmente esta ejecutando un pedazo de codigo</h1>
+    <script>
+
+        //this en el global scope
+        console.log(`this en global scope ${this}`);//hace referencia a window
+
+        //this en el scope de una funcion
+        function whoIsThis(){
+            return this;
+        }
+        console.log(`this en una funcion ${whoIsThis()}`);
+
+        //This en el scope de una funcion en strict mode
+        function whoIsThisStrict(){
+            "use strict";
+            return this;
+        }
+        console.log(`this en una funcion strict mode ${whoIsThisStrict()}`);
+
+        //this en el contexto de un objeto
+        const person = {
+            name: 'German',
+            saludar: function() {
+                console.log(`Hola soy: ${this.name}`);
+            }
+        }
+        person.saludar();
+
+        //this cuando sacamos una funcion de un objeto
+        const accion = person.saludar;
+        accion(); 
+
+        //this en el contexto de una clase
+        function Person(name) {
+            //Asi empiesa this
+            //this = {}; Un objeto vacio
+            this.name = name;
+        }
+
+        Person.prototype.saludar = function(){
+                console.log(`Me llamo: ${this.name}`);
+        }
+
+        const german = new Person("German");
+        german.saludar();//en este caso this hace referencia a la instancia de la clase osea German.
+
+    </script>
+</body>
+</html>
