@@ -19,27 +19,27 @@
         function whoIsThis(){
             return this;
         }
-        console.log(`this en una funcion ${whoIsThis()}`);
+        console.log(`this en una funcion ${whoIsThis()}`);//Tambienhacee referencia a window
 
         //This en el scope de una funcion en strict mode
         function whoIsThisStrict(){
             "use strict";
             return this;
         }
-        console.log(`this en una funcion strict mode ${whoIsThisStrict()}`);
+        console.log(`this en una funcion strict mode ${whoIsThisStrict()}`);//this es undefined
 
         //this en el contexto de un objeto
         const person = {
             name: 'German',
             saludar: function() {
-                console.log(`Hola soy: ${this.name}`);
+                console.log(`Objeto: Hola soy: ${this.name}`);//This hace referencia al objeto, a los atributos del objeto
             }
         }
         person.saludar();
 
         //this cuando sacamos una funcion de un objeto
         const accion = person.saludar;
-        accion(); 
+        accion(); //This no tiene ningun valor 
 
         //this en el contexto de una clase
         function Person(name) {
